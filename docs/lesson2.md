@@ -8,7 +8,7 @@ Modify the lesson1 code to use a variable.
 resource "null_resource" "hello_world" {
   provisioner "local-exec" {
     # This is a comment
-    command = "echo 'hello world from ${var.USERNAME}'"
+    command = "echo 'hello world from ${var.user}'"
   }
 }
 ```
@@ -28,7 +28,7 @@ variable can be declared with a variable "user" {} block.
 ```
 
 That didn't work.
-You need to declare the variable USERNAME, you could just add the block below to any Terraform file, but the correct way is to add a file called **variables.tf** and use that. This is a convention.
+You need to declare the variable **user**, you could just add the block below to any Terraform file, but the correct way is to add a file called **variables.tf** and use that. This is a convention.
 
 ```HCL
 variable "user" {
@@ -209,11 +209,11 @@ So Terraform looks for the values of your variables as long as they have the pre
 Terraform can also take the values of variables from a tfvars file. Make sure to erase your environmental variables from the previous section.
 Add a file called **guff.tfvars**
 
-```file "guff.tfvars"
+```HCL
 user="guff"
 ```
 
-An apply.
+And apply.
 
 ```cli
 $ terraform apply
@@ -221,14 +221,14 @@ var.user
   Enter a value:
 ```
 
-So that didn't work. There's a convention, the old convention is to use a file called **terraform.tfvars** but you can multiple *tfvar* files as long as they have *auto* in their name. Rename **guff.tfvars** **guff.auto.tfvars** and re-apply.
+So that didn't work. There's a convention, the old convention is to use a file called **terraform.tfvars** but you can now use multiple *tfvar* files as long as they have *auto* in their name. Rename **guff.tfvars** **guff.auto.tfvars** and re-apply.
 
 ## Outputs
 
 It's also good practice to include your outputs. This helps with debugging and making your template or module extendible.
 By convention it's called  **Outputs.tf**
 
-```HCL "outputs.tf"
+```HCL
 output "hello_world" {
   description = "The Output of the Null resource"
   value       = null_resource.hello_world
@@ -259,4 +259,9 @@ hello_world = {
     - state with null resource
       local execs are contents not infrastructure so there's no record in state
 
+## Questions
 
+## Documentation
+
+For more on variables see the Hashicorp docs:
+<https://www.terraform.io/docs/configuration/variables.html>
