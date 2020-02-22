@@ -6,6 +6,17 @@ From Zero.
 
 By [James Woolfenden](https://www.linkedin.com/jameswoolfenden/)
 
+## Resources
+
+This repo:
+<https://github.com/JamesWoolfenden/terraform-by-example/>
+
+Further work:
+<https://slalom-consulting-ltd.github.io/learn-terraform/>
+
+Hashicorps learn site
+<https://learn.hashicorp.com/terraform>
+
 !!! note
     These lessons are aimed at anyone, only familiarity with Git and a code editor [atom or VSCode] is expected.
 

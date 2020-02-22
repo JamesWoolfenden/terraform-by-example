@@ -6,6 +6,7 @@ nav:
   - lessons:
       - lesson1: lesson1.md
       - lesson2: lesson2.md
+      - lesson3: lesson3.md
   - Help: help.md
   - About: about.md
 theme:

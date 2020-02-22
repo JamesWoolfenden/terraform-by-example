@@ -2,7 +2,8 @@
 
 ## my first template: hello world
 
-To start, make a null resource by creating a file called **null_resource.helloworld.tf**
+To start, make a null resource by creating a file called **null_resource.helloworld.tf**.
+
 A null resource doesn't do anything by itself.
 
 ```cli
@@ -164,5 +165,5 @@ I rarely use Provisioners myself these days, they are bad style and a hangover f
 
 ## Documentation
 
-For more on null resource see the hashicorp docs:
+For more on null resource see the Hashicorp docs:
 <https://www.terraform.io/docs/providers/null/resource.html>
