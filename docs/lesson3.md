@@ -11,7 +11,7 @@ hello from ${ip} for ${user}
 
 This is not much different than a jinja2 template, and achieves the same ends.
 
-## Add and using a module
+## Adding and using a Module
 
 Add *module.ip.tf*
 
