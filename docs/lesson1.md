@@ -2,7 +2,8 @@
 
 ## my first template: hello world
 
-Make a null resource, create a file called **null_resource.helloworld.tf**
+To start, make a null resource by creating a file called **null_resource.helloworld.tf**
+A null resource doesn't do anything by itself.
 
 ```cli
 touch null_resource.helloworld.tf
@@ -15,9 +16,9 @@ resource "null_resource" "hello_world" {
 }
 ```
 
-You have created your first Terraform template, but it does nothing yet.
+You have created your first Terraform template, but as yet it does nothing.
 
-Add a local executable provisioner:
+Adding a local executable provisioner to give the null resource some utility:
 
 ```hcl
 resource "null_resource" "hello_world" {
@@ -28,7 +29,7 @@ resource "null_resource" "hello_world" {
 }
 ```
 
-Time to try our work with **terraform init**.
+Time to try your work with **terraform init**.
 
 ```cli
 $ terraform init
@@ -60,7 +61,10 @@ rerun this command to reinitialize your working directory. If you forget, other
 commands will detect it and remind you to do so if necessary.
 ```
 
-Now that has been set up your can **terraform apply**, check when prompted and say yes.
+Terraform init is needed on new templates and went you add modules or change module versions or providers.
+You don't have to remember, Terraform will fail at apply.
+
+Now that has been set up you can try **terraform apply**, and when prompted, say yes.
 
 ```cli
 $ terraform apply
@@ -92,10 +96,9 @@ null_resource.hello_world: Creation complete after 1s [id=5019739039794330655]
 Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
 ```
 
-You have make a terraform template that does something!
+You have made a Terraform template that does something!
 
-- files
-Now check your filesystem
+Now check what files you have on your filesystem.
 
 ```cli
 ls -al
@@ -107,11 +110,13 @@ drwxrwxrwx 1 jim jim 512 Feb 22 06:56 .terraform
 -rwxrwxrwx 1 jim jim 513 Feb 22 06:59 terraform.tfstate
 ```
 
-- local state file
-- .terraform
+**Terraform.tfstate** is your local state file
 
-- refactor
-  - specify the exact provider required **provider.null.tf**
+**.terraform** contains your providers and modules[if any].
+
+### Refactor
+  
+Specify the exact Provider version required **provider.null.tf**
 
 ```hcl
 provider "null" {
@@ -119,7 +124,9 @@ provider "null" {
 }
 ```
 
-- fix tf version by specifying Terraform version in **terraform.tf**
+We specify versions so that we reproduce the same result.
+
+Specify the TF core version by specifying Terraform version in **terraform.tf**
 
 ```HCL
 terraform {
@@ -127,7 +134,9 @@ terraform {
 }
 ```
 
-- test
+State files are linked to TF core version, all members of a team using TF need to use the same version. If one upgrades, all must upgrade, so add this to ensure that you mean to.
+
+Re-test these changes with a new apply.
 
 ### Real world example
 
@@ -155,4 +164,5 @@ I rarely use Provisioners myself these days, they are bad style and a hangover f
 
 ## Documentation
 
+For more on null resource see the hashicorp docs:
 <https://www.terraform.io/docs/providers/null/resource.html>

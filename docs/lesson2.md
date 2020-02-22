@@ -74,7 +74,7 @@ Apply complete! Resources: 0 added, 0 changed, 0 destroyed.
 
 What should have happened?
 Hopefully a different output showing the new value, so why didn't it?
-This is Because you're using a shell command in a null resource there is no state record.
+This is because you're using a shell command in a null resource there is no state record.
 Check your state file **terraform.tfstate**
 
 ```json
@@ -221,7 +221,31 @@ var.user
   Enter a value:
 ```
 
-So that didn't work. There's a convention, the old convention is to use a file called **terraform.tfvars** but you can multiple tfvar files as long as they have *auto* in their name. Rename **guff.tfvars** **guff.auto.tfvars**.
+So that didn't work. There's a convention, the old convention is to use a file called **terraform.tfvars** but you can multiple *tfvar* files as long as they have *auto* in their name. Rename **guff.tfvars** **guff.auto.tfvars** and re-apply.
+
+## Outputs
+
+It's also good practice to include your outputs. This helps with debugging and making your template or module extendible.
+By convention it's called  **Outputs.tf**
+
+```HCL "outputs.tf"
+output "hello_world" {
+  description = "The Output of the Null resource"
+  value       = null_resource.hello_world
+}
+```
+
+Now when you apply you should see something like this at the end of your output;
+
+```cli
+Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
+
+Outputs:
+
+hello_world = {
+  "id" = "562214568453658147"
+}
+```
 
 !!! note "Takeaways"
     - variables
@@ -229,19 +253,10 @@ So that didn't work. There's a convention, the old convention is to use a file c
     - syntax checking
     - outputs
     - defaults
-    - cli
+    - cli usage
     - environmental variables
     - tfvars
     - state with null resource
       local execs are contents not infrastructure so there's no record in state
 
 
-with supplied variable
-
-covert to template
-
-add in first use of module http.ip
-
-change to lambda format python
-
-archive for lambda
