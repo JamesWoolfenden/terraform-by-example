@@ -8,6 +8,9 @@ By [James Woolfenden](https://www.linkedin.com/jameswoolfenden/)
 
 ## Resources
 
+This site
+<https://jameswoolfenden.github.io/terraform-by-example/>
+
 This repo:
 <https://github.com/JamesWoolfenden/terraform-by-example/>
 
