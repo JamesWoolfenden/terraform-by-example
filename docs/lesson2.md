@@ -4,7 +4,7 @@
 
 Modify the lesson1 code to use a variable.
 
-```HCL
+```terraform
 resource "null_resource" "hello_world" {
   provisioner "local-exec" {
     # This is a comment
@@ -15,7 +15,7 @@ resource "null_resource" "hello_world" {
 
 You don't need to run Terraform init as there's been no change to providers or modules, so its straight to using apply.
 
-```hcl
+```bash
 $terraform apply
 
 Error: Reference to undeclared input variable
@@ -30,7 +30,7 @@ variable can be declared with a variable "user" {} block.
 That didn't work.
 You need to declare the variable **user**, you could just add the block below to any Terraform file, but the correct way is to add a file called **variables.tf** and use that. This is a convention.
 
-```HCL
+```terraform
 variable "user" {
   type=string
 }
@@ -38,7 +38,7 @@ variable "user" {
 
 And apply.
 
-```hcl
+```bash
 $ terraform apply
 var.user
   Enter a value:
@@ -50,7 +50,7 @@ You could work with Terraform like this, and type in the values each time it run
 
 Modify your variable declaration to have a default value.
 
-```HCL
+```terraform
 variable "user" {
   type=string
   default="DEFAULT"
@@ -59,13 +59,13 @@ variable "user" {
 
 ## overrides
 
-```HCL
+```bash
 terraform apply -var "user=SHELL"
 ```
 
 What happened?
 
-```HCL
+```bash
 terraform apply -var 'user=SHELL'
 null_resource.hello_world: Refreshing state... [id=5019739039794330655]
 
@@ -107,7 +107,7 @@ Check your state file **terraform.tfstate**
 
 Destroy your template:
 
-```HCL
+```bash
 $terraform destroy
 null_resource.hello_world: Refreshing state... [id=7244294109451146186]
 
@@ -136,7 +136,7 @@ null_resource.hello_world: Destruction complete after 0s```
 
 Now try supplying value again and it will work:
 
-```CLI
+```bash
 $ terraform apply -var 'user=SHELL'
 
 An execution plan has been generated and is shown below.
@@ -177,7 +177,7 @@ $env:TF_VAR_user="environment"
 
 And apply.
 
-```cli
+```bash
 $ export TF_VAR_user="environment"
 ✔ /mnt/c/code/mkdocs/terraform-by-example/examples/lesson2 [master L|…9]
 09:29 $ terraform apply
@@ -209,13 +209,13 @@ So Terraform looks for the values of your variables as long as they have the pre
 Terraform can also take the values of variables from a tfvars file. Make sure to erase your environmental variables from the previous section.
 Add a file called **guff.tfvars**
 
-```HCL
+```terraform
 user="guff"
 ```
 
 And apply.
 
-```cli
+```bash
 $ terraform apply
 var.user
   Enter a value:
@@ -228,7 +228,7 @@ So that didn't work. There's a convention, the old convention is to use a file c
 It's also good practice to include your outputs. This helps with debugging and making your template or module extendible.
 By convention it's called  **Outputs.tf**
 
-```HCL
+```terraform
 output "hello_world" {
   description = "The Output of the Null resource"
   value       = null_resource.hello_world
@@ -237,7 +237,7 @@ output "hello_world" {
 
 Now when you apply you should see something like this at the end of your output;
 
-```cli
+```bash
 Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
 
 Outputs:

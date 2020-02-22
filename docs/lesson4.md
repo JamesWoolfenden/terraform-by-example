@@ -4,7 +4,7 @@
 
 Test you have AWS authentication, I tend to use an S3 command:
 
-```cli
+```bash
 $aws s3 ls
 2020-02-14 17:44:39 trails-680235478471
 2019-10-12 12:01:30 whosebucketisitanyway
@@ -33,7 +33,7 @@ def lambda_handler(event, context):
 
 Create a zip of the Python code, use archive provider **data.archive_file.helloworld.tf**
 
-```HCL
+```terraform
 data "archive_file" "hello-world" {
   type        = "zip"
   source_file = "${path.module}/code/lambda.py"
@@ -50,7 +50,7 @@ This Supplies the Auth, Resources and the Providers needed for
 
 Add **providers.tf**
 
-```cli
+```terraform
 provider "aws" {
     version="~>2.50"
     region="us-west-2"
@@ -67,7 +67,7 @@ There's nothing obvious connecting the AWS auth, but the AWS keychain that we va
 
 Create **aws_lambda_function.hello_world.tf**
 
-```cli
+```terraform
 resource "aws_lambda_function" "hello_world" {
  filename     = "${path.module}/lambda.zip"
  function_name= "hello-world"  
@@ -86,7 +86,7 @@ This brings the whole template together, most of this is pretty obvious,
 Finally the Lambda needs a role for authentication for itself, there is a pre-existing basic role for executing lambda "lambda_basic_execution".
 Create data **aws_iam_role.basic.tf** with:
 
-```hcl
+```terraform
 data "aws_iam_role" "basic" {
     name="lambda_basic_execution"
 }
@@ -94,7 +94,7 @@ data "aws_iam_role" "basic" {
 
 This role has only an inline IAM policy to access Cloud watch logs.
 
-```JSON
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -113,7 +113,7 @@ This role has only an inline IAM policy to access Cloud watch logs.
 
 Time to build and apply the Lambda.
 
-```CLI
+```bash
 $ terraform apply
 data.archive_file.hello-world: Refreshing state...
 data.aws_iam_role.basic: Refreshing state...
@@ -165,7 +165,7 @@ aws_lambda_function.hello_world: Creation complete after 9s [id=hello-world]
 
 You can verify that the Lambda works by invoking it at the command line.
 
-```cli
+```bash
 $ aws lambda invoke --function-name hello-world hello.json
 {
     "StatusCode": 200,

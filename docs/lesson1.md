@@ -6,13 +6,13 @@ To start, make a null resource by creating a file called **null_resource.hellowo
 
 A null resource doesn't do anything by itself.
 
-```cli
+```bash
 touch null_resource.helloworld.tf
 ```
 
 Then add the block below to it.
 
-```hcl
+```terraform
 resource "null_resource" "hello_world" {
 }
 ```
@@ -21,7 +21,7 @@ You have created your first Terraform template, but as yet it does nothing.
 
 Adding a local executable provisioner to give the null resource some utility:
 
-```hcl
+```terraform
 resource "null_resource" "hello_world" {
   provisioner "local-exec" {
     # This is a comment
@@ -32,7 +32,7 @@ resource "null_resource" "hello_world" {
 
 Time to try your work with **terraform init**.
 
-```cli
+```bash
 $ terraform init
 
 Initializing the backend...
@@ -67,7 +67,7 @@ You don't have to remember, Terraform will fail at apply.
 
 Now that has been set up you can try **terraform apply**, and when prompted, say yes.
 
-```cli
+```bash
 $ terraform apply
 An execution plan has been generated and is shown below.
 Resource actions are indicated with the following symbols:
@@ -101,7 +101,7 @@ You have made a Terraform template that does something!
 
 Now check what files you have on your filesystem.
 
-```cli
+```bash
 ls -al
 total 1
 drwxrwxrwx 1 jim jim 512 Feb 22 06:59 .
@@ -119,7 +119,7 @@ drwxrwxrwx 1 jim jim 512 Feb 22 06:56 .terraform
   
 Specify the exact Provider version required **provider.null.tf**
 
-```hcl
+```terraform
 provider "null" {
     version="2.1.2"
 }
@@ -129,7 +129,7 @@ We specify versions so that we reproduce the same result.
 
 Specify the TF core version by specifying Terraform version in **terraform.tf**
 
-```HCL
+```terraform
 terraform {
     required_version="0.12.20"
 }
@@ -141,7 +141,7 @@ Re-test these changes with a new apply.
 
 ### Real world example
 
-```HCL
+```terraform
 resource "null_resource" "waiter" {
   depends_on = [aws_iam_instance_profile.ec2profile]
 

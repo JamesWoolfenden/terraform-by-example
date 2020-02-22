@@ -5,7 +5,7 @@
 Copy lesson 2 Terraform, to lesson3 and delete *terraform.tfstate*.
 Create a folder in lesson3 called template and add **hello.tmpl**:
 
-```HCL
+```terraform
 hello from ${ip} for ${user}
 ```
 
@@ -15,7 +15,7 @@ This is not much different than a jinja2 template, and achieves the same ends.
 
 Add *module.ip.tf*
 
-```HCL
+```terraform
 module "ip" {
   source  = "JamesWoolfenden/ip/http"
   version = "0.2.8"
@@ -31,7 +31,7 @@ The module requires the http provider, so that needs to added
 
 Add module reference *provider.http.tf*.
 
-```hcl
+```terraform
 provider "http" {
   version = "1.1"
 }
@@ -39,7 +39,7 @@ provider "http" {
 
 Finally modify **null_resource.helloworld.tf**
 
-```hcl
+```terraform
 resource "null_resource" "hello_world" {
   provisioner "local-exec" {
     # This is a comment
@@ -50,7 +50,7 @@ resource "null_resource" "hello_world" {
 
 This now uses the templatefile function with supplied values for ip and user. Time to try it:
 
-```cli
+```bash
 $ terraform apply
 module.ip.data.http.ip: Refreshing state...
 
@@ -94,7 +94,7 @@ So that's using modules, templates and Terraform functions. Major features but s
 
 Terraform fmt rewrites "Terraform configuration files to a canonical format and style", that means no more arguments about spaces for layout. There is only the true path. Run it on your template.
 
-```cli
+```bash
 $ terraform fmt
 null_resource.helloworld.tf
 ```
