@@ -1,0 +1,158 @@
+# Lesson 1
+
+## my first template: hello world
+
+Make a null resource, create a file called **null_resource.helloworld.tf**
+
+```cli
+touch null_resource.helloworld.tf
+```
+
+Then add the block below to it.
+
+```hcl
+resource "null_resource" "hello_world" {
+}
+```
+
+You have created your first Terraform template, but it does nothing yet.
+
+Add a local executable provisioner:
+
+```hcl
+resource "null_resource" "hello_world" {
+  provisioner "local-exec" {
+    # This is a comment
+    command = "echo 'hello world'"
+  }
+}
+```
+
+Time to try our work with **terraform init**.
+
+```cli
+$ terraform init
+
+Initializing the backend...
+
+Initializing provider plugins...
+- Checking for available provider plugins...
+- Downloading plugin for provider "null" (hashicorp/null) 2.1.2...
+
+The following providers do not have any version constraints in configuration,
+so the latest version was installed.
+
+To prevent automatic upgrades to new major versions that may contain breaking
+changes, it is recommended to add version = "..." constraints to the
+corresponding provider blocks in configuration, with the constraint strings
+suggested below.
+
+* provider.null: version = "~> 2.1"
+
+Terraform has been successfully initialized!
+
+You may now begin working with Terraform. Try running "terraform plan" to see
+any changes that are required for your infrastructure. All Terraform commands
+should now work.
+
+If you ever set or change modules or backend configuration for Terraform,
+rerun this command to reinitialize your working directory. If you forget, other
+commands will detect it and remind you to do so if necessary.
+```
+
+Now that has been set up your can **terraform apply**, check when prompted and say yes.
+
+```cli
+$ terraform apply
+An execution plan has been generated and is shown below.
+Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # null_resource.hello_world will be created
+  + resource "null_resource" "hello_world" {
+      + id = (known after apply)
+    }
+
+Plan: 1 to add, 0 to change, 0 to destroy.
+
+Do you want to perform these actions?
+  Terraform will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+
+  Enter a value: yes
+
+null_resource.hello_world: Creating...
+null_resource.hello_world: Provisioning with 'local-exec'...
+null_resource.hello_world (local-exec): Executing: ["cmd" "/C" "echo 'hello world'"]
+null_resource.hello_world (local-exec): 'hello world'
+null_resource.hello_world: Creation complete after 1s [id=5019739039794330655]
+
+Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
+```
+
+You have make a terraform template that does something!
+
+- files
+Now check your filesystem
+
+```cli
+ls -al
+total 1
+drwxrwxrwx 1 jim jim 512 Feb 22 06:59 .
+drwxrwxrwx 1 jim jim 512 Feb 22 06:54 ..
+drwxrwxrwx 1 jim jim 512 Feb 22 06:56 .terraform
+-rwxrwxrwx 1 jim jim 139 Feb 22 06:59 null.helloworld.tf
+-rwxrwxrwx 1 jim jim 513 Feb 22 06:59 terraform.tfstate
+```
+
+- local state file
+- .terraform
+
+- refactor
+  - specify the exact provider required **provider.null.tf**
+
+```hcl
+provider "null" {
+    version="2.1.2"
+}
+```
+
+- fix tf version by specifying Terraform version in **terraform.tf**
+
+```HCL
+terraform {
+    required_version="0.12.20"
+}
+```
+
+- test
+
+### Real world example
+
+```HCL
+resource "null_resource" "waiter" {
+  depends_on = [aws_iam_instance_profile.ec2profile]
+
+  provisioner "local-exec" {
+    command = "sleep 15"
+  }
+}
+```
+
+This is basically a hack, pretty much any use of a null resources is up to something dubious. In this case AWS was being rubbish and reported that an object was made when it wasn't yet - *eventually consistent* and so here we are with a sleep statement.
+I rarely use Provisioners myself these days, they are bad style and a hangover from Terraforms beginnings.
+
+!!! note "Takeaways"
+    - Naming
+    - Versions
+    - Provisioners
+    - Providers
+    - Plan & apply
+
+## Questions
+
+## Documentation
+
+<https://www.terraform.io/docs/providers/null/resource.html>

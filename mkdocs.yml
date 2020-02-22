@@ -1,0 +1,57 @@
+---
+# yamllint disable rule:indentation
+site_name: Learn Terraform
+nav:
+  - Home: index.md
+  - lessons:
+      - lesson1: lesson1.md
+      - lesson2: lesson2.md
+  - Help: help.md
+  - About: about.md
+theme:
+  name: material
+  favicon: "assets/images/favicon.ico"
+repo_name: "jamesWoolfenden/terraform-by-example"
+repo_url: "https://github.com/jamesWoolfenden/terraform-by-example"
+markdown_extensions:
+  - admonition
+  - codehilite
+  - meta
+  - pymdownx.arithmatex
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:pymdownx.emoji.to_svg
+  - pymdownx.inlinehilite
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+# plugins
+plugins:
+  - search
+  - minify:
+      minify_html: true
+  - mkdocs-add-teaser:
+      teaser_class: "teaser"
+# Customization
+extra:
+  manifest: "manifest.webmanifest"
+  social:
+    - type: "github"
+      link: "https://github.com/slalom-consulting-ltd"
+    - type: "twitter"
+      link: "https://twitter.com/slalom"
+    - type: "linkedin"
+      link: "https://linkedin.com/company/slalom-consulting/"
+
+# Copyright
+copyright: "Copyright &copy; 2020 Slalom, LLC"
+site_author: "James Woolfenden"
