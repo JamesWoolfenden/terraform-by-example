@@ -1,16 +1,20 @@
 # Lesson 4
 
-## AWS Auth
+## AWS Authentication
 
-Test you have AWS authentication with:
+Test you have AWS authentication, I tend to use an S3 command:
 
 ```cli
-aws s3 ls
+$aws s3 ls
+2020-02-14 17:44:39 trails-680235478471
+2019-10-12 12:01:30 whosebucketisitanyway
 ```
+
+This is usually enough to tell me AWS is authenticated, unless you've not made any buckets.
 
 ## Add Python code
 
-Make a folder called code
+Make a folder called code.
 
 Add **lambda.py**
 
@@ -27,7 +31,7 @@ def lambda_handler(event, context):
 
 ## Terraform Archive
 
-Create a zip of the Python code with **data.archive_file.helloworld.tf**
+Create a zip of the Python code, use archive provider **data.archive_file.helloworld.tf**
 
 ```HCL
 data "archive_file" "hello-world" {
@@ -39,7 +43,7 @@ data "archive_file" "hello-world" {
 
 ## Add Providers
 
-Supply the Auth and the Providers needed for
+This Supplies the Auth, Resources and the Providers needed for
 
 - zip
 - aws
@@ -56,6 +60,8 @@ provider "archive" {
     version="1.3"
 }
 ```
+
+There's nothing obvious connecting the AWS auth, but the AWS keychain that we validated earlier will be automatically picked up by the AWS provider.
 
 ## Add the Lambda resource
 
@@ -77,12 +83,31 @@ This brings the whole template together, most of this is pretty obvious,
 
 ## Role
 
-Finally the Lambda needs a role for authentication, there is a pre-existing basic role for executing lambda "lambda_basic_execution".
+Finally the Lambda needs a role for authentication for itself, there is a pre-existing basic role for executing lambda "lambda_basic_execution".
 Create data **aws_iam_role.basic.tf** with:
 
 ```hcl
 data "aws_iam_role" "basic" {
     name="lambda_basic_execution"
+}
+```
+
+This role has only an inline IAM policy to access Cloud watch logs.
+
+```JSON
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "logs:CreateLogGroup",
+                "logs:CreateLogStream",
+                "logs:PutLogEvents"
+            ],
+            "Resource": "arn:aws:logs:*:*:*"
+        }
+    ]
 }
 ```
 

@@ -1,6 +1,8 @@
-covert to template
+# Lesson 3
 
-add in first use of module http.ip
+## convert to template
+
+add in first use of a module http.ip
 
 terraform fmt
 
@@ -8,8 +10,17 @@ terraform fmt
 
 
 
-change to lambda format python
-
-archive for lambda
 
 
+## Refactor
+
+Using the lessons from earlier refactor this chapter.
+
+!!! note "Takeaways"
+    - modules
+    - templating
+    - fmt
+
+## Questions
+
+## Documentation
