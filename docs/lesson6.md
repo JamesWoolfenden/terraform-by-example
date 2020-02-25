@@ -33,12 +33,11 @@ I follow a 1 resource per file with files named after resources, although dumpin
 
 ### Testing
 
-As alluded to there is no really satisfatory tool for unit
+As alluded previously to, I have yet to fins a satisfatory tool/solution for unit testing
 
 - Checkov.
 - Terraform init, plan, fmt, validate.
-- No great solution for unit testing
-- Only test whats you can reasonably fix
+- Only test whats you can reasonably be expected to fix.
 
 Some use AWS-spec. I do not.
 
@@ -46,9 +45,9 @@ Some use AWS-spec. I do not.
 
 I have a standard process for starting, building, documenting  and versioning modules.
 
-- create build process for modules
-- Follow TF module guidelines
-- build for the Registry
+- Create build process for modules.
+- Build to TF module guidelines.
+- Build for the Registry
 
 - don't put all your modules in a monolith repo
 - makes versioning hard

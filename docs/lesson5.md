@@ -136,7 +136,7 @@ workflows:
   The old best SAS option and still good enough. Used for all old module pipelines. Free for Public repos.
   The example below also does a basic tests set-up and versioning for a given module.
 
-```yaml
+```YAML
 ---
 # yamllint disable rule:line-length
 dist: trusty
@@ -179,7 +179,9 @@ after_success:
   If you're not using a SAS product this is best option.
   <https://github.com/JamesWoolfenden/terraform-aws-teamcity>
 
-Im sure there are other good SAS CI tools available e.g. Codefresh, I could easily do a list of tools to avoid.
+I'm sure there are other good SAS CI tools available e.g. Codefresh, I could easily do a list of tools to avoid.
+
+You seem to have fog
 
 ## IDE
 
@@ -192,7 +194,7 @@ I haven't used anything except VSCode for sometime.
 
 ## Terraform Tools
 
-I'm always on the lookout for new and improved tools, a short list, but these ones have proven to be essential.
+I'm always on the lookout for new and improved tools, so suprisingly this a short list, but these ones have proven to be essential.
 
 - **Terraformer** <https://github.com/GoogleCloudPlatform/terraformer>.
   This reverse engineers infrastructure into Terraform, supports just about anything.
@@ -202,6 +204,7 @@ I'm always on the lookout for new and improved tools, a short list, but these on
 
 - **The Pre-commit framework** <https://pre-commit.com/>.
   Manages your code, does many useful things like not letting add secrets to your code.
+  My current set up for pre-commit is supplied **.pre-commit-config.yaml** this is suitable for Terraform only repositories.
 
 ```yaml
 ---

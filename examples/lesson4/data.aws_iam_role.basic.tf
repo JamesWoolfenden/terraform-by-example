@@ -1,4 +1,4 @@
 
 data "aws_iam_role" "basic" {
-    name="lambda_basic_execution"
+  name = "lambda_basic_execution"
 }
