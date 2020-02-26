@@ -16,7 +16,13 @@ When I first started writing Terraform I wrote a lot of wrapper scripts now I ai
 - no wrapper scripts
 Exception- Well I sometime create a makefile or equivalent.
 
-- Call Terraform on a given path. You may have to repeat yourself but it makes up for it in for clarity and portabliity.
+- Call Terraform on a given path. You may have to repeat yourself but it makes up for it in for clarity and portability.
+
+- For application related infrastructure, keep the tf with the code it relates to.
+
+- Account level/environments code is best kept separate, this would be VPC, routing, security. With Cloud native services, The separation between Infrastructure from application is getting less defined.
+
+- Preference is for Clarity, repeat for clarity.
 
 ### Files
 
@@ -43,7 +49,7 @@ Some use AWS-spec. I do not.
 
 ### Modules
 
-I have a standard process for starting, building, documenting  and versioning modules.
+I have a standard process and skeleton for starting, building, documenting  and versioning modules.
 
 This is the MVP of module creation:
 
@@ -78,6 +84,7 @@ variable "name" {
   description="The name of the lambda"
   type=string
 }
+```
 
 Your module now requires the value for *var.name*, add that to your module reference in example, put your own value for the name:
 
@@ -94,49 +101,23 @@ That's the basics.
 
 - Create build process for modules.
 - Build to TF module guidelines.
-- Build for the Registry
-
-- don't put all your modules in a monolith repo
-- makes versioning hard
+- Build for the Registry.
+- Don't put all your modules in a monolith repo, amongst other things this makes versioning hard.
 - private repos, are forgotten not reused, never get seen or tested.
-
-### Templates
-
-Preference is for Clarity over to DRY
-
-application vs infra
-
-- reapplying tf and deploy time
-
-demarcation between infra and code
-
-expectation of responsibility
-
-- at network level
-
-IAM is problematic
-explain
-IAM test?
-least privileges must be respected, i know its hard but....
-
-providers/backend don't take vars
-no vars in vars - see locals instead
-
-whole env
-
-handy data resource
-passing vs data-source, don't import state
-
-state and CM
-show a change and state checking, deletion and recreate
 
 ## Refactor
 
 Using the lessons from earlier refactor this chapter.
 
+## Exercises
+
+1. Add a reference to a version of a module.
+
 !!! note "Takeaways"
-    - xxx
+    - modules are like micro-services, keep them separate.
 
 ## Questions
 
 ## Documentation
+
+<https://www.terraform.io/docs/modules/index.html>

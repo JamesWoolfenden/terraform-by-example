@@ -264,6 +264,12 @@ repos:
 
 You may notice the lack of unit testing tooling, this is not an omission.
 
+### Exercises
+
+1. Create an Account on Terraform cloud - <https://app.terraform.io>
+
+2. Look at the published modules modules on the Registry <https://registry.terraform.io>
+
 !!! note "Takeaways"
     - tools
     - no unit practical unit testing

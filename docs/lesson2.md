@@ -2,7 +2,7 @@
 
 ## Variables
 
-Modify the lesson1 code to use a variable.
+We are going to modify the lesson 1 code to use a variable.
 
 ```terraform
 resource "null_resource" "hello_world" {
@@ -13,7 +13,7 @@ resource "null_resource" "hello_world" {
 }
 ```
 
-You don't need to run Terraform init as there's been no change to providers or modules, so its straight to using apply.
+You don't need to run Terraform init as there's been no change to providers or modules, so it's straight to using apply.
 
 ```bash
 $terraform apply
@@ -46,7 +46,7 @@ var.user
 
 You could work with Terraform like this, and type in the values each time it runs. Thankfully, there are other options.
 
-## defaults
+## Defaults
 
 Modify your variable declaration to have a default value.
 
@@ -57,7 +57,7 @@ variable "user" {
 }
 ```
 
-## overrides
+## Overrides
 
 ```bash
 terraform apply -var "user=SHELL"
@@ -258,6 +258,10 @@ hello_world = {
     - tfvars
     - state with null resource
       local execs are contents not infrastructure so there's no record in state
+
+## Exercises
+
+1. What other data types can a variable be? Modify the example to user a list.
 
 ## Questions
 

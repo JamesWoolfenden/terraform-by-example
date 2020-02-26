@@ -27,7 +27,7 @@ The source element "JamesWoolfenden/ip/http" is a reference to the Terraform Reg
 The details for a module can be seen there <https://registry.terraform.io/modules/JamesWoolfenden/ip/http/0.2.8>.
 The version element allows us to fix the dependency.
 
-The module requires the http provider, so that needs to added
+The module requires the http provider, so that needs to added.
 
 Add module reference *provider.http.tf*.
 
@@ -92,7 +92,7 @@ So that's using modules, templates and Terraform functions. Major features but s
 
 ## terraform fmt
 
-Terraform fmt rewrites "Terraform configuration files to a canonical format and style", that means no more arguments about spaces for layout. There is only the true path. Run it on your template.
+Terraform fmt rewrites "Terraform configuration files to a canonical format and style", that means no more arguments about spaces for layout. There is only the true path of fmt. Run it on your template.
 
 ```bash
 $ terraform fmt
