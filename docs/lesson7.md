@@ -1,17 +1,21 @@
 # Lesson 7
 
-After getting Access to an a Cloud account/project, creating a state bucket is step 2.
+After starting a project getting Access to a Cloud account/project, creating a state bucket is step 2.
 
 This is usually an S3 bucket, Cloud storage, Blob Storage or Terraform Cloud Workspace.
 
-A statefiles location is determined when you invoke Terraform init.
+Having a state file allows you to cooperate on using and creating infrastrucuture code.
+
+A statefiles' location is determined when you invoke Terraform init.
 
 --
 
-## State
+## Local State
 
-If you plan do keep what you make, or have more than 1 user, remote state is a must.
-Do not check in **Terraform.tfstate**, EVER, it can contain secrets.
+When you first start and apply your template a satte file is left behind.
+If you plan to persist what you make, or have more than 1 user, remote state is a must.
+
+Do not check in **Terraform.tfstate**, EVER, as it can contain secrets.
 
 For state buckets the flowing are critically important:
 
@@ -20,11 +24,12 @@ For state buckets the flowing are critically important:
 - Versioning
 - Do not edit manually
 
-And make sure you have unique statefiles.
+And make sure you have unique statefiles. If you use the same statefile in 2 templates what will happen? Try 2 different statefiles from the same template.
 
 ## Remote state
 
-The state bucket reference, for S3 ensure you have a similar section in your **terraform.tf**:
+So just about every project should use remote state to secure its work.
+For a remote state bucket reference, in S3, you have a similar section in your **terraform.tf**:
 
 ```HCL
 terraform {
@@ -39,6 +44,10 @@ terraform {
 - Plan to run your Terraform regularly as part of a configuration management process.
 
 - A State Bucket per AWS account/GCP project/Azure Subscription.
+
+- Locking.
+
+- S3 versioning.
 
 - A Statefile per template.
 
