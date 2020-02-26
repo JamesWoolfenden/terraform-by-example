@@ -206,6 +206,15 @@ I'm always on the lookout for new and improved tools, so surprisingly this a sho
   Manages your code, does many useful things like not letting add secrets to your code.
   My current set up for pre-commit is supplied **.pre-commit-config.yaml** this is suitable for Terraform only repositories.
 
+- **Aws-vault** <https://github.com/99designs/aws-vault>
+  "A vault for securely storing and accessing AWS credentials in development environments"
+
+- **Terraform-docs** <https://github.com/segmentio/terraform-docs>
+  To generate docs from your TF code.
+
+- **Saml2aws** <https://github.com/Versent/saml2aws>
+  "CLI tool which enables you to login and retrieve AWS temporary credentials using a SAML IDP"
+
 ```yaml
 ---
 # yamllint disable rule:line-length
