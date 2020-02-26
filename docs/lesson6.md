@@ -1,6 +1,4 @@
-# Lesson 6
-
-## Structure
+# Lesson 6 Structure
 
 In the last Chapter we covered tools, this chapter focussed on structure.
 
@@ -9,7 +7,7 @@ Terraform is a declarative data driven language.
 - As a rule design for replication and clarity and not for logic constructs.
 - Design for a lower cognitive load.
 
-### How should I layout Terraform project
+## How should I layout Terraform project
 
 When I first started writing Terraform I wrote a lot of wrapper scripts now I aim to write none.
 
@@ -24,7 +22,7 @@ Exception- Well I sometime create a makefile or equivalent.
 
 - Preference is for Clarity, repeat for clarity.
 
-### Files
+## Files
 
 Naming lowercase with _ separators.
 
@@ -37,7 +35,7 @@ I follow a 1 resource per file with files named after resources, although dumpin
 - easier to compare
 - easier to debug
 
-### Testing
+## Testing
 
 As alluded previously to, I have yet to fins a satisfactory tool/solution for unit testing
 
@@ -47,7 +45,7 @@ As alluded previously to, I have yet to fins a satisfactory tool/solution for un
 
 Some use AWS-spec. I do not.
 
-### Modules
+## Modules
 
 I have a standard process and skeleton for starting, building, documenting  and versioning modules.
 

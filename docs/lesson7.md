@@ -1,4 +1,4 @@
-# Lesson 7
+# Lesson 7 State
 
 After starting a project getting Access to a Cloud account/project, creating a state bucket is step 2.
 

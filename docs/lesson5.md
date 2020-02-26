@@ -71,7 +71,7 @@ jobs:
 
 - **CircleCI**
   The stand out best current option for CI. Given a choice, this is it.
-  Below, is a basic node CI process.
+  Below, is a basic node CI process. Name it 
 
 ```yaml
 version: 2.1
@@ -181,8 +181,6 @@ after_success:
 
 I'm sure there are other good SAS CI tools available e.g. Codefresh, I could easily do a list of tools to avoid.
 
-You seem to have fog
-
 ## IDE
 
 I haven't used anything except VSCode for sometime.
@@ -191,10 +189,12 @@ I haven't used anything except VSCode for sometime.
   - Extension <https://marketplace.visualstudio.com/items?itemName=mauve.terraform>
 - **Atom**.
   I used to use this.
+- **Intellij**
+  Also supports an HCL plugin.
 
 ## Terraform Tools
 
-I'm always on the lookout for new and improved tools, so suprisingly this a short list, but these ones have proven to be essential.
+I'm always on the lookout for new and improved tools, so surprisingly this a short list, but these ones have proven to be essential.
 
 - **Terraformer** <https://github.com/GoogleCloudPlatform/terraformer>.
   This reverse engineers infrastructure into Terraform, supports just about anything.
@@ -275,6 +275,8 @@ You may notice the lack of unit testing tooling, this is not an omission.
     - no unit practical unit testing
 
 ## Questions
+
+1. Why are the options for unit testing, what's wrong?
 
 ## Documentation
 

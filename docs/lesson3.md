@@ -1,8 +1,8 @@
-# Lesson 3
+# Lesson 3 Templates
 
-## Convert to using templates
+## Convert to using a template
 
-Copy lesson 2 Terraform, to lesson3 and delete *terraform.tfstate*.
+Copy lesson 2 Terraform code, to lesson3 and delete *terraform.tfstate*.
 Create a folder in lesson3 called template and add **hello.tmpl**:
 
 ```terraform
@@ -48,7 +48,7 @@ resource "null_resource" "hello_world" {
 }
 ```
 
-This now uses the templatefile function with supplied values for ip and user. Time to try it:
+This now uses the *templatefile* function with supplied values for IP and user. Time to try it:
 
 ```bash
 $ terraform apply

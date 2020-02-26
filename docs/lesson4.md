@@ -2,10 +2,10 @@
 
 ## AWS Authentication
 
-Test you have AWS authentication, I tend to use an S3 command:
+Test you have AWS authentication set-up, I tend to use a simple S3 command:
 
 ```bash
-$aws s3 ls
+$ aws s3 ls
 2020-02-14 17:44:39 trails-680235478471
 2019-10-12 12:01:30 whosebucketisitanyway
 ```
@@ -16,7 +16,7 @@ This is usually enough to tell me AWS is authenticated, unless you've not made a
 
 Make a folder called code.
 
-Add **lambda.py**
+Add **lambda.py** to it.
 
 ```python
 import json
@@ -46,7 +46,7 @@ data "archive_file" "hello-world" {
 This Supplies the Auth, Resources and the Providers needed for
 
 - zip
-- aws
+- AWS
 
 Add **providers.tf**
 
@@ -192,4 +192,9 @@ Using the lessons from earlier refactor this chapter.
 
 ## Questions
 
+1. How do you specify an AWS profile?
+2. Why might that be a bad idea?
+
 ## Documentation
+
+<https://www.terraform.io/docs/providers/aws/index.html>

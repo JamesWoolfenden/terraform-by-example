@@ -1,6 +1,6 @@
-# Lesson 1
+# Lesson 1 Hello World
 
-## my first template: hello world
+## my first template
 
 To start, make a null resource by creating a file called **null_resource.helloworld.tf**.
 
@@ -62,10 +62,10 @@ rerun this command to reinitialize your working directory. If you forget, other
 commands will detect it and remind you to do so if necessary.
 ```
 
-Terraform init is needed on new templates and went you add modules or change module versions or providers.
-You don't have to remember, Terraform will fail at apply.
+Terraform init is only needed on new templates and when you add modules or change module versions or providers.
+You don't have to remember it all, Terraform will fail at apply.
 
-Now that has been set up you can try **terraform apply**, and when prompted, say yes.
+Now that has been set up, you can try **terraform apply**, and when prompted, say yes.
 
 ```bash
 $ terraform apply

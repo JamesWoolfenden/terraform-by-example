@@ -1,8 +1,8 @@
-# Lesson 2
+# Lesson 2 Variables
 
 ## Variables
 
-We are going to modify the lesson 1 code to use a variable.
+We are going to modify the lesson 1 code to use a variable, adding in "from ${var.user}".
 
 ```terraform
 resource "null_resource" "hello_world" {
@@ -204,7 +204,7 @@ Do you want to perform these actions?
 
 So Terraform looks for the values of your variables as long as they have the prefix **TF_VAR_** but there are exceptions.
 
-## tfvars
+## Tfvars
 
 Terraform can also take the values of variables from a tfvars file. Make sure to erase your environmental variables from the previous section.
 Add a file called **guff.tfvars**
@@ -221,7 +221,7 @@ var.user
   Enter a value:
 ```
 
-So that didn't work. There's a convention, the old convention is to use a file called **terraform.tfvars** but you can now use multiple *tfvar* files as long as they have *auto* in their name. Rename **guff.tfvars** **guff.auto.tfvars** and re-apply.
+So that didn't work. There's a convention for variable files "tfvars", the old convention is to use a file called **terraform.tfvars** but you can now use multiple *tfvar* files as long as they have *auto* in their name. Rename **guff.tfvars** **guff.auto.tfvars** and re-apply.
 
 ## Outputs
 
@@ -235,7 +235,7 @@ output "hello_world" {
 }
 ```
 
-Now when you apply you should see something like this at the end of your output;
+Now when you apply, you should see something like this at the end of your output;
 
 ```bash
 Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
@@ -261,11 +261,14 @@ hello_world = {
 
 ## Exercises
 
-1. What other data types can a variable be? Modify the example to user a list.
+1. What other data types can a variable be? Modify the example to use a list type.
+2. What other file formats are supported?
 
 ## Questions
 
 ## Documentation
+
+<https://www.terraform.io/docs/configuration/syntax-json.html>
 
 For more on variables see the Hashicorp docs:
 <https://www.terraform.io/docs/configuration/variables.html>
