@@ -173,6 +173,12 @@ $ aws lambda invoke --function-name hello-world hello.json
 }
 ```
 
+## State
+
+- Change the name of the lambda in code and **terraform apply**, what do you expect to happen?
+
+- Change the name of the lambda in the AWS console, and **terraform apply**, what do you expect to happen?
+
 ## Refactor
 
 Using the lessons from earlier refactor this chapter.

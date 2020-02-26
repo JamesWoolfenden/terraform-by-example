@@ -161,6 +161,10 @@ I rarely use Provisioners myself these days, they are bad style and a hangover f
     - Providers
     - Plan & apply
 
+## Exercise
+
+1. Change the required_version to "0.12.25" and Apply.
+
 ## Questions
 
 ## Documentation

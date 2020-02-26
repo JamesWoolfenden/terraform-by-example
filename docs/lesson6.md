@@ -51,7 +51,7 @@ I have a standard process for starting, building, documenting  and versioning mo
 
 - don't put all your modules in a monolith repo
 - makes versioning hard
-- private repos, are forgottenm not reused, never get seen or tested.
+- private repos, are forgotten not reused, never get seen or tested.
 
 ### Templates
 

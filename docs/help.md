@@ -1,16 +1,16 @@
 # Help
 
-If its been useful, let me know. If it out of date or broken also. I'll appreciate it. Or If you think somethings missing or contribute?
+If its been useful, let me know. If it out of date or broken also. I'll appreciate it. Or If you think something's missing or contribute?
 
 **Got a question?**
 
-File a GitHub [issue](https://github.com/JamesWoolfenden/learn-terraform-web/issues).
+File a GitHub [issue](https://github.com/JamesWoolfenden/terraform-by-example/issues).
 
 ## Contributing
 
 ### Bug Reports & Feature Requests
 
-Please use the [issue tracker](https://github.com/JamesWoolfenden/learn-terraform-web/issues) to report any bugs or file feature requests.
+Please use the [issue tracker](https://github.com/JamesWoolfenden/terraform-by-example/issues) to report any bugs or file feature requests.
 
 ## Copyrights
 
@@ -48,8 +48,8 @@ under the License.
 [github]: https://github.com/jameswoolfenden
 [linkedin]: https://www.linkedin.com/company/slalom-consulting/
 [twitter]: https://twitter.com/Slalom
-[share_twitter]: https://twitter.com/intent/tweet/?text=https://github.com/JamesWoolfenden/learn-terraform-web
-[share_linkedin]: https://www.linkedin.com/shareArticle?mini=true&title=github.com/JamesWoolfenden/learn-terraform-web
-[share_reddit]: https://reddit.com/submit/?url=https://github.com/JamesWoolfenden/learn-terraform-web
-[share_facebook]: https://facebook.com/sharer/sharer.php?u=https://github.com/JamesWoolfenden/learn-terraform-web
-[share_email]: mailto:?subject=learn-terraform&body=https://github.com/JamesWoolfenden/learn-terraform-web
+[share_twitter]: https://twitter.com/intent/tweet/?text=https://github.com/JamesWoolfenden/terraform-by-example
+[share_linkedin]: https://www.linkedin.com/shareArticle?mini=true&title=github.com/JamesWoolfenden/terraform-by-example
+[share_reddit]: https://reddit.com/submit/?url=https://github.com/JamesWoolfenden/terraform-by-example
+[share_facebook]: https://facebook.com/sharer/sharer.php?u=https://github.com/JamesWoolfenden/terraform-by-example
+[share_email]: mailto:?subject=terraform-by-example&body=https://github.com/JamesWoolfenden/terraform-by-example
