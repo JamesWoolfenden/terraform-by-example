@@ -33,7 +33,7 @@ I follow a 1 resource per file with files named after resources, although dumpin
 
 ### Testing
 
-As alluded previously to, I have yet to fins a satisfatory tool/solution for unit testing
+As alluded previously to, I have yet to fins a satisfactory tool/solution for unit testing
 
 - Checkov.
 - Terraform init, plan, fmt, validate.
@@ -44,6 +44,53 @@ Some use AWS-spec. I do not.
 ### Modules
 
 I have a standard process for starting, building, documenting  and versioning modules.
+
+This is the MVP of module creation:
+
+Make a copy of the Lambda code from lesson 4.
+
+Create a folder called example, and move the provider to it.
+Then add **module.lambda.tf**
+
+```HCL
+module "lambda" {
+    source="../"
+}
+```
+
+in **aws_lambda_function.hello_world.tf**
+
+```HCL
+resource "aws_lambda_function" "hello_world" {
+  filename         = "${path.module}/lambda.zip"
+  function_name    = var.name
+  handler          = "lambda.lambda_handler"
+  role             = data.aws_iam_role.basic.arn
+  runtime          = "python3.7"
+  source_code_hash = data.archive_file.hello-world.output_base64sha256
+}
+```
+
+And add **variables.tf**
+
+```HCL
+variable "name" {
+  description="The name of the lambda"
+  type=string
+}
+
+Your module now requires the value for *var.name*, add that to your module reference in example, put your own value for the name:
+
+```HCL
+module "lambda" {
+    source= "../"
+    name  = "James made me do it"
+}
+```
+
+Open the example folder in your console, and Terraform init and apply.
+
+That's the basics.
 
 - Create build process for modules.
 - Build to TF module guidelines.
