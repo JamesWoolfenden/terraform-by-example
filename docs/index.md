@@ -6,8 +6,8 @@ From Zero.
 
 By [James Woolfenden](https://www.linkedin.com/jameswoolfenden/)
 
-I've been using Terraform since version 0.5 <https://www.hashicorp.com/blog/terraform-0-5/> while that seems a while, i'm still learning and it's still changing.
-I've used it with all of the Main Public Clouds. The majority of my Examples will target AWS.
+I've been using Terraform since version 0.5 <https://www.hashicorp.com/blog/terraform-0-5/> while that seems a while, I'm still learning and it's still changing.
+I've used it with all of the main public clouds. The majority of the examples here will target AWS, but no prior knowledge is required.
 
 ## Resources
 
