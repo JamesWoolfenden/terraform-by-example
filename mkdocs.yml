@@ -12,6 +12,7 @@ nav:
       - Lesson 6: lesson6.md
       - Lesson 7: lesson7.md
   - Terraform 201:
+      - Lesson 8: lesson8.md
   - Help: help.md
   - About: about.md
 theme:
