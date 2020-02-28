@@ -3,7 +3,7 @@
 site_name: Terraform by example
 nav:
   - Home: index.md
-  - Lessons:
+  - Terraform 101:
       - Lesson 1: lesson1.md
       - Lesson 2: lesson2.md
       - Lesson 3: lesson3.md
@@ -11,6 +11,7 @@ nav:
       - Lesson 5: lesson5.md
       - Lesson 6: lesson6.md
       - Lesson 7: lesson7.md
+  - Terraform 201:
   - Help: help.md
   - About: about.md
 theme:

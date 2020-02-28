@@ -133,7 +133,8 @@ Do not check in **Terraform.tfstate**, EVER, as it can contain secrets.
 ## Remote state
 
 So just about every project should use remote state to secure it's work.
-Ti use remote state, a remote state bucket reference is required, in S3, you have a similar section in your **terraform.tf**:
+To use remote state, a remote state bucket reference is required.
+To use an S3 bucket, you have a similar section as below in your **terraform.tf**:
 
 ```HCL
 terraform {
@@ -148,7 +149,7 @@ terraform {
 For state buckets the following are critically important:
 
 - Locking.
-  Considering a locking DynamocDB table early.
+  Considering a locking DynamoDB table early.
 - It's a private bucket.
 - Encryption. It can contain secrets
 - Do not edit manually.
@@ -178,7 +179,7 @@ This allows you to read the output, if any, of the state file of another templat
 
 That Datasource used to be the only way of the finding out results of other runs.
 
-There are now almost as many datasource objects as resources, so you  don't have to know it's location, which makes for looser coupling.
+There are now almost as many Datasource objects as resources, so you  don't have to know it's location, which makes for looser coupling.
 
 This also allows you to conditionally create or read objects in Terraform.
 You might still need this, but it's probably a code smell.

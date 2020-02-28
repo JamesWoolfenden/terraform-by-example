@@ -9,6 +9,11 @@ By [James Woolfenden](https://www.linkedin.com/jameswoolfenden/)
 I've been using Terraform since version 0.5 <https://www.hashicorp.com/blog/terraform-0-5/> while that seems a while, I'm still learning and it's still changing.
 I've used it with all of the main public clouds. The majority of the examples here will target AWS, but no prior knowledge is required.
 
+## Pre-requisites
+
+Terraform 0.12.21 or newer.
+An editor, VSCode, Atom or equivalent.
+
 ## Resources
 
 This site
