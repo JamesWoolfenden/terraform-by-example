@@ -1,4 +1,4 @@
-# Lesson 6 Structure
+# Lesson 106 Structure
 
 In the last Chapter we covered tools, this chapter focussed on structure.
 
@@ -18,7 +18,7 @@ Exception- Well I sometime create a makefile or equivalent.
 
 - For application related infrastructure, keep the tf with the code it relates to.
 
-- Account level/environments code is best kept separate, this would be VPC, routing, security. With Cloud native services, The separation between Infrastructure from application is getting less defined.
+- Account level/environments code is best kept separate, this would be VPC, routing, security. With Cloud native services, The separation between Infrastructure from application is getting less defined (see lesson 201).
 
 - Preference is for Clarity, repeat for clarity.
 

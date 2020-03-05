@@ -1,4 +1,4 @@
-# Lesson 8 Repository Patterns
+# Lesson 201 Repository Patterns
 
 ## How should my Infra code be structured
 
@@ -6,7 +6,7 @@ In Git permissions, access, branching and PRS are set-up on a repository basis.
 What can you reasonable manage as an owner/contributor should shape the structure.
 What is a "manageable piece of infrastructure"?
 There is no one answer, it depends on the project aims and the situation you start in. Your IAC will use a combination of these approaches.ld
-Each folder shou be directly run-able by Terraform:
+Each folder should be directly run-able by Terraform:
 
 ```cli
 environment\eu-west-1\test$ terraform apply
@@ -23,12 +23,18 @@ When to use:
 
 To set up an account for use by applications, to control account level resources e.g. VPC, security.
 
-```
-├──environments
-      ├──region
-	      ├──dev
-	      ├──test
-          
+```tree
+└───environments
+    └───eu-west-1
+        ├───dev
+        └───test
+                main.auto.tfvars
+                main.tf
+                Makefile
+                outputs.tf
+                provider.aws.tf
+                README.md
+                variables.tf
 ```
 
 ### Pros
@@ -60,16 +66,32 @@ When to use:
 Some objects are neither the landing Zone nor a single services application code.
 Each environment/workspace <name> has a build process and life-cycle.
 
-```
-├──eks
-   ├──region
-      ├──dev <eks-region-dev>
-      ├──test <eks-region-test>
-├──elasticsearch
-   ├──region
-	  ├──dev <elasticsearch-region-dev>
-      ├──test <elasticsearch-region-test>
-      ├──other
+```tree
+├───eks
+│   └───eu-west-1
+│       ├───dev <eks-region-dev>
+│       │       main.auto.tfvars
+│       │       main.tf
+│       │       Makefile
+│       │       outputs.tf
+│       │       provider.aws.tf
+│       │       README.md
+│       │       variables.tf
+│       │
+│       └───test <eks-region-test>
+└───elasticsearch
+    └───eu-west-1
+        ├───dev <elasticsearch-region-dev>
+        │       main.auto.tfvars
+        │       main.tf
+        │       Makefile
+        │       outputs.tf
+        │       provider.aws.tf
+        │       README.md
+        │       variables.tf
+        │
+        └───test <elasticsearch-region-test>
+
 ```
 
 ### Pros
@@ -93,16 +115,31 @@ For development teams to manage their own applications infrastructure, infrastru
 In DevOps, we empower development teams, so for dev teams to modify and manage.
 It could be Terraform, Pulumi <https://www.pulumi.com/>, Serverless <https://serverless.com/https://serverless.com/> or SAM <https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/what-is-sam.html> the structure should still be something like:
 
-```
-├──src
-├──iac
-    ├──lambda
-         ├──dev
-	     ├──test
-    ├──service
-	     ├──dev
-         ├──test
-         ├──other
+```tree
+├───iac
+│   ├───lambda
+│   │   ├───dev
+│   │   │       main.auto.tfvars
+│   │   │       main.tf
+│   │   │       Makefile
+│   │   │       outputs.tf
+│   │   │       provider.aws.tf
+│   │   │       README.md
+│   │   │       variables.tf
+│   │   │
+│   │   └───test
+│   └───service
+│       ├───dev
+│       │       main.auto.tfvars
+│       │       main.tf
+│       │       Makefile
+│       │       outputs.tf
+│       │       provider.aws.tf
+│       │       README.md
+│       │       variables.tf
+│       │
+│       └───test
+└───src
 ```
 
 ### Pros
@@ -123,14 +160,50 @@ It could be Terraform, Pulumi <https://www.pulumi.com/>, Serverless <https://ser
 When to use:
 
 Once you've created a reusable module, it should reside in a separate repository, so that it is a manageable and reusable component with ots own life-cycle.
-A module should always contain an example implementation and documentation.
+A module should always contain an example implementation and documentation. Repositories are named after their purpose and technology `terraform-<PROVIDER>-<NAME>`.
+Versioning uses the Semantic scheme.
+Below is the layout for a module for activemq
 
-```
-<code>
-├──example
-         ├──examplea
-         ├──exampleb
-
+```tree
+└───terraform-aws-activemq
+    │   .gitattributes
+    │   .gitignore
+    │   .markdownlint.json
+    │   .markdownlintrc
+    │   .pre-commit-config.yaml
+    │   .terraformignore
+    │   aws_mq_broker.broker.tf
+    │   aws_mq_configuration.broker.tf
+    │   aws_security_group.broker.tf
+    │   LICENSE
+    │   main.tf
+    │   outputs.tf
+    │   password.tf
+    │   README.md
+    │   validate.ps1
+    │   validate.sh
+    │   variables.tf
+    │   
+    ├───.chglog
+    │       CHANGELOG.tpl.md
+    │       config.yml
+    │       
+    ├───.dependabot
+    │       config.yml
+    │       
+    ├───.github
+    │   └───workflows
+    │           main.yml
+    │           
+    └───example
+        └───examplea
+                data.network.tf
+                examplea.auto.tfvars
+                Makefile
+                module.broker.tf
+                outputs.tf
+                provider.aws.tf
+                variables.tf
 ```
 
 ### Cons
@@ -142,7 +215,7 @@ A module should always contain an example implementation and documentation.
 - Simple.
 - Module has own life-cycle, versioning and testing process.
 - Re-use by design.
-- allows you to fix module versions across environments and promote a module through an applications stages.
+- Allows you to fix module versions across environments and promote a module through an applications stages.
 
 ## Refactor
 
@@ -154,3 +227,5 @@ A module should always contain an example implementation and documentation.
 ## Questions
 
 ## Documentation
+
+<https://www.terraform.io/docs/registry/modules/publish.html>

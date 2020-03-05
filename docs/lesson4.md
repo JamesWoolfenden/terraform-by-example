@@ -1,4 +1,4 @@
-# Lesson 4 Making an AWS Lambda
+# Lesson 104 Making an AWS Lambda
 
 ## AWS Authentication
 
