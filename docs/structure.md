@@ -66,8 +66,8 @@ Each environment/workspace <name> has a build process and life-cycle.
 
 ### Cons
 
-- Requires Invocation of multiple workspaces to make an environment
-- Duplication of properties
+- Requires Invocation of multiple workspaces to make an environment.
+- Duplication of properties.
 
 Workspace Builds can be chained.
 
@@ -79,7 +79,7 @@ Should never contain module code.
 When to use:
 For development teams to manage their own applications infrastructure, infrastructure code lives alongside application code. 
 In DevOps, we empower development teams, so for dev teams to modify and manage.
-I could be Terraform, Pulumi or SAM the strucuture should be something like:
+I could be Terraform, Pulumi <https://www.pulumi.com/>, Serverless <https://serverless.com/https://serverless.com/> or SAM <https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/what-is-sam.html> the structure should be something like:
 
 ```
 ├──src
