@@ -145,7 +145,7 @@ It could be Terraform, Pulumi <https://www.pulumi.com/>, Serverless <https://ser
 ### Pros
 
 - Run infra provisioning as part of your deployment process.
-- Isolated changes.n
+- Isolated changes.
 - Access control.
 
 ### Cons
