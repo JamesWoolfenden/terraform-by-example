@@ -28,7 +28,7 @@ resource "aws_mq_broker" "broker" {
   }
 
   logs {
-    general = var.logs["general"]
+    general = true
     audit   = var.logs["audit"]
   }
 
