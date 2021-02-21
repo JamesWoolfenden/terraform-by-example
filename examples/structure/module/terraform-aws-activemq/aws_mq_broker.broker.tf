@@ -36,6 +36,7 @@ resource "aws_mq_broker" "broker" {
   tags       = var.common_tags
 }
 
+
 variable "mq_username" {
   type    = string
   default = "ExampleUser"

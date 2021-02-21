@@ -9,4 +9,3 @@ resource "aws_lambda_function" "hello_world" {
     mode = "PassThrough"
   }
 }
-

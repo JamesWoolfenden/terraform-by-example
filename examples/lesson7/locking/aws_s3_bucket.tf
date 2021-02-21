@@ -1,4 +1,6 @@
 resource "aws_s3_bucket" "bucket" {
+  #checkov:skip=CKV_AWS_52
+  #checkov:skip=CKV_AWS_18
   acl    = private
   bucket = var.s3_bucket_name
 
@@ -15,6 +17,7 @@ resource "aws_s3_bucket" "bucket" {
 }
 
 
+
 variable "s3_bucket_name" {
-  type=string
+  type = string
 }

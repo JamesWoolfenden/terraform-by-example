@@ -1,4 +1,4 @@
 module "lambda" {
-    source= "../"
-    name  = "James made me do it"
+  source = "../"
+  name   = "James made me do it"
 }

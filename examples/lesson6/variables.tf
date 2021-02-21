@@ -1,4 +1,4 @@
 variable "name" {
-  description="The name of the lambda"
-  type=string
+  description = "The name of the lambda"
+  type        = string
 }

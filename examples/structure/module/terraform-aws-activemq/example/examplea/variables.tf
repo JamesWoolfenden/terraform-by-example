@@ -1,6 +1,6 @@
 variable "common_tags" {
   description = "This is to help you add tags to your cloud objects"
-  type        = map
+  type        = map(any)
 }
 
 variable "vpc_name_tag" {
@@ -19,11 +19,11 @@ variable "sub_public_tag" {
 }
 
 variable "mq_broker" {
-  type = map
+  type = map(any)
 
 }
 
 variable "my_config" {
   description = "MQ Config"
-  type        = map
+  type        = map(any)
 }
